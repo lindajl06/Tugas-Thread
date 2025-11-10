@@ -5,30 +5,29 @@ public class BookDisplayThread extends Thread {
     @Override
     public void run() {
         try {
-            // Memberi jeda sedikit untuk simulasi tugas yang butuh waktu
-            Thread.sleep(1000); 
+            Thread.sleep(1000);
             
             // Mengambil data dari database
             List<String> toRead = DatabaseManager.getBooksByStatus("To Read");
             List<String> reading = DatabaseManager.getBooksByStatus("Reading");
             List<String> read = DatabaseManager.getBooksByStatus("Read");
 
-            // Menampilkan output sesuai format yang diinginkan
+            // Menampilkan output
             System.out.println("--------------------------");
             
-            System.out.println("Buku yang ingin dibaca: ");
+            System.out.println("Want to Read: ");
             for (String title : toRead) {
                 System.out.println("- " + title);
             }
-            System.out.println(); 
+            System.out.println();
 
-            System.out.println("Buku yang sedang dibaca:");
+            System.out.println("Currently Reading:");
             for (String title : reading) {
                 System.out.println("- " + title);
             }
-            System.out.println(); 
+            System.out.println();
 
-            System.out.println("Buku yang sudah dibaca:");
+            System.out.println("Read:");
             for (String title : read) {
                 System.out.println("- " + title);
             }
